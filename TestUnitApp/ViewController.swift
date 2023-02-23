@@ -17,3 +17,18 @@ class ViewController: UIViewController {
 
 }
 
+protocol utilsProtocol {
+    func teste(email: String, senha: String, completion: @escaping completionHandler)
+}
+
+public typealias completionHandler = (Result) -> Void
+
+public enum Result{
+    case sucess
+    case failure(error: WorkerError)
+}
+
+public enum WorkerError: Equatable, Error {
+    case notFound
+    case errorFull
+}
